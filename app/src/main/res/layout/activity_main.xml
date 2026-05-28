@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/main_root_layout"
+    android:background="#050505">
+
+    <TextView
+        android:id="@+id/crimson_line_top"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#FF1744"
+        android:layout_alignParentTop="true" />
+
+    <RelativeLayout
+        android:id="@+id/ticker_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/crimson_line_top"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:background="#0A0A0A">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SYSTEM STATUS"
+                android:textColor="#FF1744"
+                android:textSize="9sp"
+                android:letterSpacing="0.15"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="2dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/ticker_ram"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="RAM: -- MB"
+                    android:textColor="#A1A1AA"
+                    android:textSize="11sp"
+                    android:fontFamily="sans-serif-monospace" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" | "
+                    android:textColor="#3F3F46"
+                    android:textSize="11sp"
+                    android:fontFamily="sans-serif-monospace" />
+
+                <TextView
+                    android:id="@+id/ticker_battery"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="BAT: --%"
+                    android:textColor="#A1A1AA"
+                    android:textSize="11sp"
+                    android:fontFamily="sans-serif-monospace" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/ticker_clock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="10:42 AM"
+            android:textColor="#E4E4E7"
+            android:textSize="18sp"
+            android:gravity="end"
+            android:fontFamily="sans-serif-light" />
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/center_orb_frame"
+        android:layout_width="260dp"
+        android:layout_height="260dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/ticker_layout"
+        android:layout_marginTop="16dp">
+
+        <com.junior.assistant.ui.main.OrbAnimationView
+            android:id="@+id/orb_animation_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </FrameLayout>
+
+    <com.junior.assistant.ui.main.WaveformView
+        android:id="@+id/waveform_view"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/center_orb_frame"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="16dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/chat_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/waveform_view"
+        android:layout_above="@id/controls_bar"
+        android:layout_margin="16dp"
+        android:scrollbars="vertical" />
+
+    <LinearLayout
+        android:id="@+id/controls_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:padding="16dp"
+        android:background="#0C0C0C">
+
+        <ImageView
+            android:id="@+id/btn_settings"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@android:drawable/ic_menu_preferences"
+            app:tint="#FF1744"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:layout_marginRight="32dp"
+            android:padding="8dp"
+            android:contentDescription="Settings Menu" />
+
+        <ImageButton
+            android:id="@+id/btn_mic"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:src="@android:drawable/ic_btn_speak_now"
+            app:tint="#FFFFFF"
+            android:background="@android:drawable/toast_frame"
+            android:backgroundTint="#FF1744"
+            android:scaleType="centerInside"
+            android:contentDescription="Voice record" />
+
+        <ImageView
+            android:id="@+id/btn_text_keyboard"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@android:drawable/ic_menu_edit"
+            app:tint="#40C4FF"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:layout_marginLeft="32dp"
+            android:padding="8dp"
+            android:contentDescription="Type text" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/crimson_line_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#FF1744"
+        android:layout_above="@id/controls_bar" />
+
+    <View
+        android:id="@+id/red_glow_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#11FF0000"
+        android:visibility="gone" />
+
+</RelativeLayout>

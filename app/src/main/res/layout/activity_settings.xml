@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#050505"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="JUNIOR SETTINGS"
+        android:textColor="#FF1744"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="24dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="How Junior counts you (User Custom Name):"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        android:layout_marginBottom="8dp" />
+
+    <EditText
+        android:id="@+id/edit_user_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#151515"
+        android:textColor="#FFFFFF"
+        android:padding="12dp"
+        android:inputType="textPersonName"
+        android:hint="Enter name (e.g., Sir, My Love)"
+        android:textColorHint="#555555"
+        android:layout_marginBottom="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Male Voice Preference Preset:"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        android:layout_marginBottom="8dp" />
+
+    <Spinner
+        android:id="@+id/spinner_voice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#151555"
+        android:layout_marginBottom="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Companion Male Personality Mode:"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        android:layout_marginBottom="8dp" />
+
+    <RadioGroup
+        android:id="@+id/radio_group_persona"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="20dp">
+
+        <RadioButton
+            android:id="@+id/radio_companion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Companion / Boyfriend Mode (Hinglish/Romantic)"
+            android:textColor="#FFFFFF"
+            android:buttonTint="#FF1744" />
+
+        <RadioButton
+            android:id="@+id/radio_professional"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Professional Assistant (Formal English Only)"
+            android:textColor="#FFFFFF"
+            android:buttonTint="#40C4FF" />
+
+        <RadioButton
+            android:id="@+id/radio_normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Standard Assistant (Balanced English/Hinglish)"
+            android:textColor="#FFFFFF"
+            android:buttonTint="#E040FB" />
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gemini Live API Key (Overrides default):"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        android:layout_marginBottom="8dp" />
+
+    <EditText
+        android:id="@+id/edit_api_key"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#151515"
+        android:textColor="#FFFFFF"
+        android:padding="12dp"
+        android:inputType="textPassword"
+        android:hint="Enter custom API Key"
+        android:textColorHint="#555555"
+        android:layout_marginBottom="24dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end">
+
+        <Button
+            android:id="@+id/btn_cancel_settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:textColor="#FF1744"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_marginRight="12dp" />
+
+        <Button
+            android:id="@+id/btn_save_settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save"
+            android:backgroundTint="#FF1744"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Outer Tech Circle (Dashed Glow effect) -->
+    <path
+        android:pathData="M54,18 A36,36 0 1,1 53.99,18 Z"
+        android:strokeColor="#1FFFF174"
+        android:strokeWidth="1.5"
+        android:fillColor="#00000000"/>
+
+    <!-- Cyan Ambient Cyber Ring -->
+    <path
+        android:pathData="M54,26 A28,28 0 1,1 53.99,26 Z"
+        android:strokeColor="#4040C4FF"
+        android:strokeWidth="1"
+        android:fillColor="#00000000"/>
+
+    <!-- Concentric Inner Circle -->
+    <path
+        android:pathData="M54,34 A20,20 0 1,1 53.99,34 Z"
+        android:strokeColor="#22FFFFFF"
+        android:strokeWidth="0.8"
+        android:fillColor="#00000000"/>
+
+    <!-- Glowing Red Core Orb Sphere (Center 54, 54, Radius 14) -->
+    <path
+        android:pathData="M54,40 A14,14 0 1,1 53.99,40 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:centerX="54"
+                android:centerY="54"
+                android:gradientRadius="14"
+                android:type="radial">
+                <item android:offset="0.0" android:color="#FF1744" />
+                <item android:offset="0.7" android:color="#B71C1C" />
+                <item android:offset="1.0" android:color="#880E4F" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Super Premium Glass Highlight -->
+    <path
+        android:pathData="M48,44 Q51,48 56,47 Q52,43 48,44 Z"
+        android:fillColor="#4DFFFFFF"/>
+
+    <!-- Minimalist Premium Microphone Vector Silhouette (Centered at 54, 54) -->
+    <!-- Mic body: rect with rounded corners, left=51.5, top=47, right=56.5, bottom=56 -->
+    <path
+        android:pathData="M51.5,47.5 C51.5,46 52.5,45 54,45 C55.5,45 56.5,46 56.5,47.5 L56.5,53.5 C56.5,55 55.5,56 54,56 C52.5,56 51.5,55 51.5,53.5 Z"
+        android:fillColor="#FFFFFF"/>
+    <!-- Mic clip/stand curve and footing -->
+    <path
+        android:pathData="M49,52 C49,55.5 51.5,58 54,58 C56.5,58 59,55.5 59,52"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="1.2"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000"/>
+    <path
+        android:pathData="M54,58 L54,61"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="1.2"
+        android:fillColor="#00000000"/>
+    <path
+        android:pathData="M52,61 L56,61"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="1.2"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000"/>
+
+</vector>

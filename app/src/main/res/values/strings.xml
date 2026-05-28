@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Junior</string>
+    <string name="accessibility_description">Junior Systems companion helper to facilitate hardware triggers, system automation, and screen reading analysis.</string>
+</resources>
