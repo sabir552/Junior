@@ -5,7 +5,7 @@ on:
     branches: [ main, master ]
   pull_request:
     branches: [ main, master ]
-  workflow_dispatch: # Manual trigger bhi allow karta hai
+  workflow_dispatch:
 
 jobs:
   build:
@@ -13,11 +13,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # ── 1. Code checkout ─────────────────────────────────────────────
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      # ── 2. Java 17 setup (AGP 9.x requirement) ───────────────────────
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
@@ -25,23 +23,19 @@ jobs:
           distribution: 'temurin'
           cache: gradle
 
-      # ── 3. Android SDK setup ─────────────────────────────────────────
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
 
-      # ── 4. .env file banana (Secrets Gradle Plugin ke liye) ──────────
-      # API key app ke andar settings se add hoti hai,
-      # lekin Secrets plugin ko .env file compile time pe chahiye.
-      # Isliye ek dummy placeholder bana rahe hain.
-      - name: Create .env file for Secrets Plugin
+      - name: Install Gradle Wrapper
         run: |
-          echo "GEMINI_API_KEY=PLACEHOLDER_KEY_SET_IN_APP_SETTINGS" > .env
+          wget -q https://services.gradle.org/distributions/gradle-8.4-bin.zip -P /tmp
+          unzip -q /tmp/gradle-8.4-bin.zip -d /tmp
+          /tmp/gradle-8.4/bin/gradle wrapper --gradle-version 8.4
+          chmod +x gradlew
 
-      # ── 5. Gradle permission ──────────────────────────────────────────
-      - name: Make Gradlew Executable
-        run: chmod +x ./gradlew
+      - name: Create .env file
+        run: echo "GEMINI_API_KEY=PLACEHOLDER_KEY_SET_IN_APP_SETTINGS" > .env
 
-      # ── 6. Gradle cache (build speed ke liye) ────────────────────────
       - name: Cache Gradle Packages
         uses: actions/cache@v4
         with:
@@ -52,25 +46,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gradle-
 
-      # ── 7. Debug APK Build ────────────────────────────────────────────
       - name: Build Debug APK
         run: ./gradlew assembleDebug --stacktrace --no-daemon
         env:
           ANDROID_HOME: ${{ env.ANDROID_HOME }}
 
-      # ── 8. APK Upload (artifact ke tor par save karo) ─────────────────
       - name: Upload Debug APK
         uses: actions/upload-artifact@v4
         with:
           name: Junior-Debug-APK
           path: app/build/outputs/apk/debug/app-debug.apk
           retention-days: 30
-
-      # ── 9. Build summary ──────────────────────────────────────────────
-      - name: Build Summary
-        if: success()
-        run: |
-          echo "✅ Build successful!"
-          echo "APK location: app/build/outputs/apk/debug/app-debug.apk"
-          APK_SIZE=$(du -sh app/build/outputs/apk/debug/app-debug.apk | cut -f1)
-          echo "APK size: $APK_SIZE"
