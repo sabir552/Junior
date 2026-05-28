@@ -28,9 +28,9 @@ jobs:
 
       - name: Install Gradle Wrapper
         run: |
-          wget -q https://services.gradle.org/distributions/gradle-8.4-bin.zip -P /tmp
-          unzip -q /tmp/gradle-8.4-bin.zip -d /tmp
-          /tmp/gradle-8.4/bin/gradle wrapper --gradle-version 8.4
+          wget -q https://services.gradle.org/distributions/gradle-8.11.1-bin.zip -P /tmp
+          unzip -q /tmp/gradle-8.11.1-bin.zip -d /tmp
+          /tmp/gradle-8.11.1/bin/gradle wrapper --gradle-version 8.11.1
           chmod +x gradlew
 
       - name: Create .env file
